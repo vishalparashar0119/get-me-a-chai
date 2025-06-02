@@ -5,7 +5,7 @@ const NavBar = () => {
     return (
         <div className='bg-blue-950 text-white p-2 flex  justify-between'>
             <div className=" flex items-center text-lg font-bold gap-2">
-                <img src="/tea.gif" alt="" width={40} height={40} className='bg-white' />
+                <img src="/tea.gif" alt="" width={40} height={40}  />
                 <h1>Get me a chai?</h1>
             </div>
 
