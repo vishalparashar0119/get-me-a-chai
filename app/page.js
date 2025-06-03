@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export default function Home() {
+  
   return (
     <>
     <div className="text-center text-white lg:py-16 flex flex-col gap-2">

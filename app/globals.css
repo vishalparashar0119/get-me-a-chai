@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@layer utilities {
+    .loader {
+        width: 60px;
+        aspect-ratio: 2 / 1;
+        background:
+            radial-gradient(circle closest-side, #000 90%, transparent) no-repeat 0% 50%,
+            radial-gradient(circle closest-side, #000 90%, transparent) no-repeat 50% 50%,
+            radial-gradient(circle closest-side, #000 90%, transparent) no-repeat 100% 50%;
+        background-size: calc(100% / 3) 50%;
+        animation: dotsLoader 1s infinite linear;
+    }
+
+    @keyframes dotsLoader {
+        20% {
+            background-position: 0% 0%, 50% 50%, 100% 50%;
+        }
+
+        40% {
+            background-position: 0% 100%, 50% 0%, 100% 50%;
+        }
+
+        60% {
+            background-position: 0% 50%, 50% 100%, 100% 0%;
+        }
+
+        80% {
+            background-position: 0% 50%, 50% 50%, 100% 100%;
+        }
+    }
+}
