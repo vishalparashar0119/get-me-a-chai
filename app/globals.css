@@ -1,32 +1,21 @@
 @import "tailwindcss";
 
-@layer utilities {
-    .loader {
-        width: 60px;
-        aspect-ratio: 2 / 1;
-        background:
-            radial-gradient(circle closest-side, #000 90%, transparent) no-repeat 0% 50%,
-            radial-gradient(circle closest-side, #000 90%, transparent) no-repeat 50% 50%,
-            radial-gradient(circle closest-side, #000 90%, transparent) no-repeat 100% 50%;
-        background-size: calc(100% / 3) 50%;
-        animation: dotsLoader 1s infinite linear;
-    }
+::-webkit-scrollbar {
+    width: 10px;
+}
 
-    @keyframes dotsLoader {
-        20% {
-            background-position: 0% 0%, 50% 50%, 100% 50%;
-        }
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
 
-        40% {
-            background-position: 0% 100%, 50% 0%, 100% 50%;
-        }
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:  #1d293d;
+    border-radius: 5px;
+}
 
-        60% {
-            background-position: 0% 50%, 50% 100%, 100% 0%;
-        }
-
-        80% {
-            background-position: 0% 50%, 50% 50%, 100% 100%;
-        }
-    }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #1d293d;
 }
