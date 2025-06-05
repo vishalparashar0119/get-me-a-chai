@@ -1,7 +1,31 @@
+"use client"
 import React from 'react'
+import { useState, use } from 'react';
 
-const page = async ({ params }) => {
-  const { userName } = await params;
+const page = ({ params }) => {
+
+  const { userName } = use(params);
+
+  const [payment, setPayment] = useState({
+    name: "",
+    message: "",
+    amount: ""
+
+  });
+
+  const handleChange = (e) => {
+    setPayment({ ...payment, [e.target.name]: e.target.value })
+  }
+
+  const fixedPayment = (val)=>{
+      setPayment({
+    name: "",
+    message: "",
+    amount: val
+
+  })
+  }
+
   return (
     <div className=' text-white'>
       <div className='w-full h-[55vh] relative'>
@@ -27,6 +51,7 @@ const page = async ({ params }) => {
         <div className="w-1/2 bg-slate-900 min-h-[100px] max-h-[200px] p-5 rounded-lg overflow-y-auto">
           <h1 className='text-xl font-bold'>Supporters</h1>
           <ul className='pl-2'>
+            <li><span className='text-lg font-bold text-slate-500'>Avi negi</span> : donate <span className='text-green-500'>100$</span> with a message : "<span className='text-amber-400'>This is for rcb ❤️</span>"</li>
             <li><span className='text-lg font-bold text-slate-500'>vishal</span> : donate <span className='text-green-500'>10$</span> with a message : "<span className='text-amber-400'>we support you bhai ❤️</span>"</li>
 
           </ul></div>
@@ -34,9 +59,9 @@ const page = async ({ params }) => {
           <h1 className='text-xl font-bold'>Make a payment</h1>
           <div className='mt-5 flex flex-col gap-3 '>
             <div className='flex flex-col gap-3'>
-              <input type="text" className='bg-slate-800 p-2 w-full rounded-sm' placeholder='Enter Name ' />
-              <input type="text" className='bg-slate-800 p-2 w-full rounded-sm' placeholder='Enter Message' />
-              <input type="text" className='bg-slate-800 p-2 w-full rounded-sm' placeholder='Enter Amount' />
+              <input onChange={handleChange} type="text" className='bg-slate-800 p-2 w-full rounded-sm' placeholder='Enter Name ' value={payment.name} name='name' />
+              <input onChange={handleChange} type="text" className='bg-slate-800 p-2 w-full rounded-sm' placeholder='Enter Message' value={payment.message} name='message' />
+              <input onChange={handleChange} type="text" className='bg-slate-800 p-2 w-full rounded-sm' placeholder='Enter Amount' value={payment.amount} name='amount' />
             </div>
 
             <div className='w-1/4'>
@@ -44,13 +69,13 @@ const page = async ({ params }) => {
             </div>
 
             <div className='flex gap-2' >
-              <button className='bg-slate-700 py-2 px-5 rounded-lg cursor-pointer '>
+              <button onClick={()=> fixedPayment(5)} className='bg-slate-700 py-2 px-5 rounded-lg cursor-pointer'>
                 $5
               </button>
-              <button className='bg-slate-700 py-2 px-5 rounded-lg cursor-pointer '>
+              <button onClick={()=> fixedPayment(10)} className='bg-slate-700 py-2 px-5 rounded-lg cursor-pointer '>
                 $10
               </button>
-              <button className='bg-slate-700 py-2 px-5 rounded-lg cursor-pointer '>
+              <button onClick={()=> fixedPayment(20)} className='bg-slate-700 py-2 px-5 rounded-lg cursor-pointer '>
                 $20
               </button>
             </div>
